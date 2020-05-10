@@ -1,0 +1,127 @@
+<!-- MODAL-->
+<div class="modal fade" id="edit_isee_card">
+  <%= form_for @isee_card, remote: true do |f| %>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>
+          <span class='text-danger'>
+            &times;
+          </span>
+        </button>
+        <h4 class='modal-title'>
+          <strong>
+            <%= icon('fas', 'pencil-alt', class: 'text-warning') %>
+            &nbsp;
+            <%= icon('fas', 'id-card', class: 'text-primary') %>
+            &nbsp;
+            <span class='text-primary'>
+              Modifica Scheda ISEE
+            </span>
+          </strong>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <% if @isee_card.errors.any? %>
+          <div id='error_explanation'>
+            <h2><%= pluralize(report.errors.count, 'error') %>
+              Prohibited to save Isee Card:</h2>
+            <ul>
+              <% @isee_card.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="form-inputs">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <strong class='text-warning'>
+                <%= icon('fas', 'user') %>
+              </strong>
+            </span>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <br>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <strong class="text-warning">
+                <%= icon('fas', 'user-tie') %>
+              </strong>
+            </span>
+            <%= f.text_field :surname, class: 'form-control' %>
+          </div>
+          <br>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <strong class="text-warning">
+                <%= icon('fas', 'mobile-alt') %>
+              </strong>
+            </span>
+            <%= f.text_field :phone, class: 'form-control', placeholder: 'Telefono:' %>
+          </div>
+          <br>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <strong class="text-warning">
+                <%= icon('fas', 'at') %>
+              </strong>
+            </span>
+            <%= f.email_field :email, class: 'form-control', placeholder: 'E-Mail:' %>
+          </div>
+          <br>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <strong class="text-warning">
+                <%= icon('fas', 'tools') %>
+              </strong>
+            </span>
+            <%= f.collection_select(:use_type_id, UseType.order('position ASC'), :id, :name, {:include_blank => false}, {:class => 'form-control'}) %>
+          </div>
+          <br>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <strong class="text-warning">
+                <%= icon('fas', 'map-marker-alt') %>
+              </strong>
+            </span>
+            <%= f.collection_select(:location_id, Location.order('position ASC'), :id, :name, {:include_blank => false}, {:class => 'form-control'}) %>
+          </div>
+          <br>
+          <h4>
+            <span class="label label-warning">
+              <%= icon('fas', 'check-circle') %>
+              &nbsp; Chiusa: &nbsp;
+              <%= f.check_box :completed %>
+            </span>
+          </h4>
+          <br>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <strong class="text-warning">
+                <%= icon('fas', 'calendar-day') %>
+              </strong>
+            </span>
+            <%= f.text_field :completion_date, class: 'datepicker form-control', placeholder: 'Data Chiusura:' %>
+          </div>
+          <br>
+        </div>
+        <div class="modal-footer">
+          <div class='form-group'>
+            <button type='button' class='btn btn-danger' data-dismiss='modal'>
+              <%= icon('fas', 'times') %>&nbsp;Chiudi
+            </button>
+            <%= button_tag(type: 'submit', class: 'btn btn-success btn-sm', title: 'Aggiorna', 'data-toggle' => 'tooltip', 'data-placement' => 'top') do %>
+            <%= icon('fas', 'save') %>&nbsp;Aggiorna
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+<script>
+$(document).ready(function () {
+  $('.datepicker').datepicker({language: 'it'});
+});
+</script>

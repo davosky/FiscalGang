@@ -1,0 +1,127 @@
+<div class='modal fade' id='show_isee_card'>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>
+          <span class='text-danger'>
+            &times;
+          </span>
+        </button>
+        <h4 class='modal-title'>
+          <strong>
+            <%= icon('fas', 'id-card', class: 'text-info') %>
+            &nbsp;
+            <span class='text-primary'>
+              Scheda ISEE
+            </span>
+          </strong>
+        </h4>
+      </div>
+      <div class='modal-body'>
+        <%= icon('fas', 'user-circle') %>
+        &nbsp;Creato da:&nbsp;&nbsp;&nbsp;
+        <%= @isee_card.user.name %>
+        &nbsp;
+        <%= @isee_card.user.surname %>
+        <br>
+        <span class='pull-left'>
+          <%= icon('fas', 'calendar-day') %>
+          &nbsp;Creato il:&nbsp;
+          <%= l(@isee_card.created_at, format: '%A %d %B %Y alle ore: %H:%M') %>
+        </span>
+        <br>
+        <% if modified?(@isee_card) %>
+          <hr>
+          <%= icon('fas', 'user-circle') %>
+          &nbsp;Aggiornato da:&nbsp;&nbsp;&nbsp;
+          <%= @isee_card.updater %>
+          <span class='pull-left'>
+            <%= icon('fas', 'calendar-day') %>
+            &nbsp;Aggiornato il:&nbsp;
+            <%= l(@isee_card.updated_at, format: '%A %d %B %Y alle ore: %H:%M') %>
+          </span>
+        <% end %>
+        <br><br>
+        <hr>
+        <ul class='list-group'>
+          <li class='list-group-item'>
+            <span class='text-primary'>
+              <small>
+                <%= icon('fas', 'user-tie') %>
+                &nbsp;Utente:&nbsp;
+              </small>
+            </span>
+            <br>
+            <br>
+            <span class="text-info">
+              <%= @isee_card.name %>
+              &nbsp;
+              <%= @isee_card.surname %>
+            </span>
+          </li>
+          <li class='list-group-item'>
+            <span class='text-primary'>
+              <small>
+                <%= icon('fas', 'mobile-alt') %>
+                &nbsp;
+                <%= icon('fas', 'at') %>
+                &nbsp;Contatti:&nbsp;
+              </small>
+            </span>
+            <br>
+            <br>
+            <%= @isee_card.phone %>
+            &nbsp;&nbsp;-&nbsp;&nbsp;
+            <%= mail_to @isee_card.email %>
+          </li>
+          <li class='list-group-item'>
+            <span class='text-primary'>
+              <small>
+                <%= icon('fas', 'map-marker-alt') %>
+                &nbsp;Zona:
+              </small>
+            </span>
+            <br>
+            <br>
+            <%= @isee_card.location.name if @isee_card.location_id.present? %>
+          </li>
+          <li class='list-group-item'>
+            <span class='text-primary'>
+              <small>
+                <%= icon('fas', 'tools') %>
+                &nbsp;Tipologia di Utilizzo:
+              </small>
+            </span>
+            <br>
+            <br>
+            <%= @isee_card.use_type.name if @isee_card.use_type.present? %>
+          </li>
+          <li class='list-group-item'>
+            <span class='text-primary'>
+              <small>
+                <%= icon('fas', 'check-circle') %>
+                &nbsp;
+                <%= icon('fas', 'calendar-day') %>
+                &nbsp; Completata
+              </small>
+            </span>
+            <br>
+            <br>
+            <span class='text-<%= completed?(@isee_card) %>'>
+              <%= completed_icon?(@isee_card) %>
+              &nbsp;
+              <%= completed_date?(@isee_card) %>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class='modal-footer'>
+        <div class='form-group'>
+          <button type='button' class='btn btn-primary' data-dismiss='modal'>
+            <%= icon('fas', 'times') %>&nbsp;Chiudi
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

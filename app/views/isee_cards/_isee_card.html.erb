@@ -1,0 +1,21 @@
+<tr id="<%= isee_card.id %>" class="<%= completed?(isee_card) %>">
+  <td>
+    <%= link_to isee_card_path(isee_card), title: 'Dettaglio Scheda ISEE', remote: true do %>
+      <%= icon('fas', 'id-card', class: 'strong') %>
+    <% end %>
+  </td>
+  <td><%= isee_card.name %></td>
+  <td><%= isee_card.surname %></td>
+  <td><%= isee_card.phone %></td>
+  <td><%= isee_card.location.name %></td>
+  <td>
+    <%= link_to edit_isee_card_path(isee_card), title: 'Modifica Scheda ISEE', remote: true do %>
+      <%= icon('fas', 'pencil-alt', class: 'strong') %>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to isee_card, title: "Elimina Scheda ISEE", method: :delete, remote: true, data: { confirm: 'Sicuri di voler eliminare la Scheda ISEE corrente?' } do %>
+      <%= icon('fas', 'trash-alt', class: 'strong') %>
+    <% end %>
+  </td>
+</tr>

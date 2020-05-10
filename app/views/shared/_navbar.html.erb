@@ -1,0 +1,62 @@
+<nav class='navbar navbar-inverse'>
+  <div class='container-fluid'>
+    <div class='navbar-header'>
+      <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1'>
+        <span class='sr-only'>Toggle navigation</span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </button>
+      <%= link_to root_path, class: 'navbar-brand' do %>
+      <%= inline_svg_tag('navbar_logo.svg', size: '138px * 26px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+    <% end %>
+  </div>
+  <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
+    <ul class='nav navbar-nav'>
+      <li>
+        <%= link_to isee_cards_path do %>
+        <%= icon('fas', 'id-card', ' Schede ISEE', class: 'strong') %>
+      <% end %>
+    </li>
+  </ul>
+  <ul class='nav navbar-nav navbar-right'>
+    <li class='dropdown'>
+      <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>
+        <%= icon('fas', 'cog', class: 'strong') %>
+        Utility
+      </a>
+      <ul class='dropdown-menu' role='menu'>
+        <li>
+          <% if admin? %>
+            <%= link_to rails_admin_path do %>
+              <%= icon('fas', 'cogs', ' Amministrazione', class: 'strong') %>
+            <% end %>
+          <% end %>
+        </li>
+      <li>
+        <%= link_to use_types_path do %>
+        <%= icon('fas', 'tools', ' Utilizzi', class: 'strong') %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to locations_path do %>
+      <%= icon('fas', 'map-marker-alt', ' Zone', class: 'strong') %>
+    <% end %>
+  </li>
+  <li class='divider'></li>
+  <li>
+    <%= link_to edit_user_registration_path do %>
+    <%= icon('fas', 'user', ' Profilo', class: 'strong') %>
+  <% end %>
+</li>
+<li>
+  <%= link_to destroy_user_session_path, method: :delete do %>
+  <%= icon('fas', 'sign-out-alt', ' Esci', class: 'strong') %>
+<% end %>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>

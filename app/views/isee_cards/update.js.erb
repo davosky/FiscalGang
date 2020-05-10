@@ -1,0 +1,4 @@
+$(".modal").each(function(index,element) {
+$(element).modal("hide");
+});
+$("#<%= @isee_card.id %>").replaceWith("<%= j render @isee_card %>");

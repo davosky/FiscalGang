@@ -1,0 +1,37 @@
+<div class='panel panel-default'>
+  <div class='panel-body'>
+    <h3 class='text-primary'>
+      <strong>
+        <%= inline_svg_tag('profile_card.svg', size: '24px * 24px', preserve_aspect_ratio: 'xMaxYMax meet') %>&nbsp;Profilo
+      </strong>
+      <span class='pull-right'>
+        <%= link_to :back, class: 'btn btn-primary btn-sm' do %>
+          <%= icon('fas', 'arrow-left') %>&nbsp;Ritorna al Gestionale
+        <% end %>
+      </span>
+    </h3>
+    <br/>
+    <hr class="hr-primary">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :password, label: 'Inserisci la Nuova Password',
+                hint: "lascia il campo libero se non vuoi cambiarla",
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation, label: 'Conferma la Nuova Password',
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
+        <%= f.input :current_password, label: 'Inserisci la Password Corrente',
+                hint: "devi inserire la vecchia password per confermare quella nuova",
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
+      </div>
+      <div class="form-actions">
+        <%= button_tag(type: 'submit', class: 'btn btn-success btn-sm', title: 'Aggiorna', 'data-toggle' => 'tooltip', 'data-placement' => 'top') do %>
+          <%= icon('fas', 'save') %>&nbsp;Aggiorna
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
