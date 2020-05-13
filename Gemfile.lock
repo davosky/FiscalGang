@@ -137,6 +137,8 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    polyamorous (2.3.2)
+      activerecord (>= 5.2.1)
     puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.2)
@@ -186,6 +188,11 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rake (13.0.1)
+    ransack (2.3.2)
+      activerecord (>= 5.2.1)
+      activesupport (>= 5.2.1)
+      i18n
+      polyamorous (= 2.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -239,6 +246,9 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    will_paginate (3.3.0)
+    will_paginate-bootstrap (1.0.2)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
@@ -264,6 +274,7 @@ DEPENDENCIES
   rails-i18n (~> 5.1)
   rails_admin
   rails_admin-i18n
+  ransack
   rename
   sassc-rails
   simple_calendar
@@ -273,6 +284,8 @@ DEPENDENCIES
   tzinfo-data
   uglifier
   web-console
+  will_paginate
+  will_paginate-bootstrap
 
 RUBY VERSION
    ruby 2.6.5p114

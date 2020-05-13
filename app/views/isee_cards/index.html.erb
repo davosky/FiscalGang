@@ -1,158 +1,198 @@
+<div>
+  <%= search_form_for @q, class: 'form-inline' do |s| %>
+  <%= s.label 'Nome: ', class:'text-primary' %>
+  <%= s.search_field :name_cont, class: 'form-control' %>
+  <%= s.label 'Cognome: ', class:'text-primary' %>
+  <%= s.search_field :surname_cont, class: 'form-control' %>
+  <%= s.label 'Zona: ', class:'text-primary' %>
+  <%= s.search_field :location_name_cont, class: 'form-control' %>
+  <%= button_tag(type: 'submit', class: 'btn btn-primary btn-sm', title: 'Aggiorna', 'data-toggle' => 'tooltip', 'data-placement' => 'top') do %>
+    <%= icon('fas', 'search') %>&nbsp;Cerca
+  <% end %>
+<% end %>
+</div>
+<hr class="hr-primary">
 <div class='panel panel-default'>
-  <div class='panel-body'>
-    <h3 class="text-primary">
-      <%= inline_svg_tag('isee_card_card.svg', size: '24px * 24px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-      &nbsp;<strong>Schede ISEE</strong>
-      <span class="pull-right">
-        <%= link_to '#new_isee_card', data: { toggle: 'modal' }, class: 'btn btn-primary btn-sm' do %>
-        <%= icon('fas', 'plus', class: 'strong') %>
-        &nbsp;
-        <%= icon('fas', 'id-card', class: 'strong') %>
-        &nbsp; Nuova Scheda ISEE
-      <% end %>
-    </span>
-  </h3>
-  <br/>
-  <hr class="hr-primary">
-  <table class='table table-hover'>
-    <thead>
-      <tr>
-        <th></th>
-        <th>
-          <%= icon('fas', 'user', class: 'strong') %>&nbsp;Nome
-        </th>
-        <th>
-          <%= icon('fas', 'user-tie', class: 'strong') %>&nbsp;Cognome
-        </th>
-        <th>
-          <%= icon('fas', 'mobile-alt', class: 'strong') %>&nbsp;Telefono
-        </th>
-        <th>
-          <%= icon('fas', 'map-marker-alt', class: 'strong') %>&nbsp;Zona
-        </th>
-        <th colspan="2"></th>
-      </tr>
-    </thead>
-    <tbody id='isee_cards'>
-      <%= render @isee_cards %>
-    </tbody>
-  </table>
+<div class='panel-body'>
+<h3 class='text-primary'>
+  <%= inline_svg_tag('isee_card_card.svg', size: '24px * 24px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+  &nbsp;<strong>Schede ISEE</strong>
+  <span class='pull-right'>
+    <%= link_to '#new_isee_card', data: { toggle: 'modal' }, class: 'btn btn-primary btn-sm' do %>
+    <%= icon('fas', 'plus', class: 'strong') %>
+    &nbsp;
+    <%= icon('fas', 'id-card', class: 'strong') %>
+    &nbsp; Nuova Scheda ISEE
+  <% end %>
+</span>
+</h3>
+<br/>
+<hr class='hr-primary'>
+<table class='table table-hover'>
+<thead>
+  <tr>
+    <th></th>
+    <th>
+      <%= icon('fas', 'user', class: 'strong') %>&nbsp;Nome
+    </th>
+    <th>
+      <%= icon('fas', 'user-tie', class: 'strong') %>&nbsp;Cognome
+    </th>
+    <th>
+      <%= icon('fas', 'mobile-alt', class: 'strong') %>&nbsp;Telefono
+    </th>
+    <th>
+      <%= icon('fas', 'clipboard', class: 'strong') %>&nbsp;Note
+    </th>
+    <th>
+      <%= icon('fas', 'map-marker-alt', class: 'strong') %>&nbsp;Zona
+    </th>
+    <th colspan='2'></th>
+  </tr>
+</thead>
+<tbody id='isee_cards'>
+  <%= render @isee_cards %>
+</tbody>
+</table>
 </div>
 </div>
 <br>
+<div class="text-center">
+<strong>
+<%= will_paginate @isee_cards, :previous_label => '<< PRECEDENTE', :next_label => 'PROSSIMA >>', renderer: BootstrapPagination::Rails %>
+</strong>
+</div>
 <!-- MODAL -->
-<div class="modal fade" id="new_isee_card">
+<div class='modal fade' id='new_isee_card'>
 <%= form_for IseeCard.new, remote: true do |f| %>
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>
-        <span class='text-danger'>
-          &times;
-        </span>
-      </button>
-      <h4 class='modal-title'>
-        <strong>
-          <%= icon('fas', 'pencil-alt', class: 'text-success') %>
-          &nbsp;
-          <%= icon('fas', 'id-card', class: 'text-primary') %>
-          &nbsp;&nbsp;&nbsp;
-          <span class='text-primary'>
-            Nuova Scheda ISEE
-          </span>
+<div class='modal-dialog'>
+<div class='modal-content'>
+<div class='modal-header'>
+  <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>
+    <span class='text-danger'>
+      &times;
+    </span>
+  </button>
+  <h4 class='modal-title'>
+    <strong>
+      <%= icon('fas', 'pencil-alt', class: 'text-success') %>
+      &nbsp;
+      <%= icon('fas', 'id-card', class: 'text-primary') %>
+      &nbsp;&nbsp;&nbsp;
+      <span class='text-primary'>
+        Nuova Scheda ISEE
+      </span>
+    </strong>
+  </h4>
+</div>
+<div class='modal-body'>
+  <div class='form-inputs'>
+    <div class='input-group'>
+      <span class='input-group-addon'>
+        <strong class='text-success'>
+          <%= icon('fas', 'user') %>
         </strong>
-      </h4>
+      </span>
+      <%= f.text_field :name, class: 'form-control', placeholder: 'Nome:' %>
     </div>
-    <div class="modal-body">
-      <div class="form-inputs">
-        <div class="input-group">
-          <span class="input-group-addon">
-            <strong class='text-success'>
-              <%= icon('fas', 'user') %>
-            </strong>
-          </span>
-          <%= f.text_field :name, class: 'form-control', placeholder: 'Nome:' %>
-        </div>
-        <br>
-        <div class="input-group">
-          <span class="input-group-addon">
-            <strong class="text-success">
-              <%= icon('fas', 'user-tie') %>
-            </strong>
-          </span>
-          <%= f.text_field :surname, class: 'form-control', placeholder: 'Cognome:' %>
-        </div>
-        <br>
-        <div class="input-group">
-          <span class="input-group-addon">
-            <strong class="text-success">
-              <%= icon('fas', 'mobile-alt') %>
-            </strong>
-          </span>
-          <%= f.text_field :phone, class: 'form-control', placeholder: 'Telefono:' %>
-        </div>
-        <br>
-        <div class="input-group">
-          <span class="input-group-addon">
-            <strong class="text-success">
-              <%= icon('fas', 'at') %>
-            </strong>
-          </span>
-          <%= f.email_field :email, class: 'form-control', placeholder: 'E-Mail:' %>
-        </div>
-        <br>
-        <div class="input-group">
-          <span class="input-group-addon">
-            <strong class="text-success">
-              <%= icon('fas', 'tools') %>
-            </strong>
-          </span>
-          <%= f.collection_select(:use_type_id, UseType.order('position ASC'), :id, :name, {:include_blank => false}, {:class => 'form-control'}) %>
-        </div>
-        <br>
-        <div class="input-group">
-          <span class="input-group-addon">
-            <strong class="text-success">
-              <%= icon('fas', 'map-marker-alt') %>
-            </strong>
-          </span>
-          <%= f.collection_select(:location_id, Location.order('position ASC'), :id, :name, {:include_blank => false}, {:class => 'form-control'}) %>
-        </div>
-        <br>
-        <h4>
-          <span class="label label-primary">
-            <%= icon('fas', 'check-circle') %>
-            &nbsp; Chiusa: &nbsp;
-            <%= f.check_box :completed %>
-          </span>
-        </h4>
-        <br>
-        <div class="input-group">
-          <span class="input-group-addon">
-            <strong class="text-success">
-              <%= icon('fas', 'calendar-day') %>
-            </strong>
-          </span>
-          <%= f.text_field :completion_date, class: 'datepicker form-control', placeholder: 'Data Chiusura:' %>
-        </div>
-      </div>
+    <br>
+    <div class='input-group'>
+      <span class='input-group-addon'>
+        <strong class='text-success'>
+          <%= icon('fas', 'user-tie') %>
+        </strong>
+      </span>
+      <%= f.text_field :surname, class: 'form-control', placeholder: 'Cognome:' %>
     </div>
-    <div class="modal-footer">
-      <div class="form-group">
-        <button type='button' class='btn btn-danger' data-dismiss='modal'>
-          <%= icon('fas', 'times') %>&nbsp;Chiudi
-        </button>
-        <%= button_tag(type: 'submit', class: 'btn btn-success', title: 'Salva', 'data-toggle' => 'tooltip', 'data-placement' => 'top') do %>
-        <%= icon('fas', 'save') %>&nbsp;Salva
-      <% end %>
+    <br>
+    <div class='input-group'>
+      <span class='input-group-addon'>
+        <strong class='text-success'>
+          <%= icon('fas', 'credit-card') %>
+        </strong>
+      </span>
+      <%= f.text_field :fiscal_code, class: 'form-control', placeholder: 'Codice Fiscale:' %>
+    </div>
+    <br>
+    <div class='input-group'>
+      <span class='input-group-addon'>
+        <strong class='text-success'>
+          <%= icon('fas', 'mobile-alt') %>
+        </strong>
+      </span>
+      <%= f.text_field :phone, class: 'form-control', placeholder: 'Telefono:' %>
+    </div>
+    <br>
+    <div class='input-group'>
+      <span class='input-group-addon'>
+        <strong class='text-success'>
+          <%= icon('fas', 'clipboard') %>
+        </strong>
+      </span>
+      <%= f.text_field :note, class: 'form-control', placeholder: 'Note Telefono:' %>
+    </div>
+    <br>
+    <div class='input-group'>
+      <span class='input-group-addon'>
+        <strong class='text-success'>
+          <%= icon('fas', 'at') %>
+        </strong>
+      </span>
+      <%= f.email_field :email, class: 'form-control', placeholder: 'E-Mail:' %>
+    </div>
+    <br>
+    <div class='input-group'>
+      <span class='input-group-addon'>
+        <strong class='text-success'>
+          <%= icon('fas', 'tools') %>
+        </strong>
+      </span>
+      <%= f.collection_select(:use_type_id, UseType.order('position ASC'), :id, :name, {:include_blank => false}, {:class => 'form-control'}) %>
+    </div>
+    <br>
+    <div class='input-group'>
+      <span class='input-group-addon'>
+        <strong class='text-success'>
+          <%= icon('fas', 'map-marker-alt') %>
+        </strong>
+      </span>
+      <%= f.collection_select(:location_id, Location.order('position ASC'), :id, :name, {:include_blank => false}, {:class => 'form-control'}) %>
+    </div>
+    <br>
+    <h4>
+      <span class='label label-primary'>
+        <%= icon('fas', 'check-circle') %>
+        &nbsp; Chiusa: &nbsp;
+        <%= f.check_box :completed %>
+      </span>
+    </h4>
+    <br>
+    <div class='input-group'>
+      <span class='input-group-addon'>
+        <strong class='text-success'>
+          <%= icon('fas', 'calendar-day') %>
+        </strong>
+      </span>
+      <%= f.text_field :completion_date, class: 'datepicker form-control', placeholder: 'Data Chiusura:' %>
     </div>
   </div>
+</div>
+<div class='modal-footer'>
+  <div class='form-group'>
+    <button type='button' class='btn btn-danger' data-dismiss='modal'>
+      <%= icon('fas', 'times') %>&nbsp;Chiudi
+    </button>
+    <%= button_tag(type: 'submit', class: 'btn btn-success', title: 'Salva', 'data-toggle' => 'tooltip', 'data-placement' => 'top') do %>
+    <%= icon('fas', 'save') %>&nbsp;Salva
+  <% end %>
+</div>
+</div>
 </div>
 </div>
 <% end %>
 </div>
 <script>
 $(document).ready(function () {
-  $('.datepicker').datepicker({language: 'it'});
+$('.datepicker').datepicker({language: 'it'});
 });
 </script>

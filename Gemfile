@@ -23,12 +23,15 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 gem 'rails-i18n', '~> 5.1'
 gem 'rails_admin'
 gem 'rails_admin-i18n'
+gem 'ransack'
 gem 'rename'
 gem 'sassc-rails'
 gem 'simple_calendar'
 gem 'simple_form'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

@@ -51,6 +51,12 @@
                 &nbsp;Utente:&nbsp;
               </small>
             </span>
+            <span class="pull-right">
+              <small>
+                <%= icon('fas', 'credit-card text-primary') %>
+                <%= @isee_card.fiscal_code %>
+              </small>
+            </span>
             <br>
             <br>
             <span class="text-info">
@@ -73,6 +79,13 @@
             <%= @isee_card.phone %>
             &nbsp;&nbsp;-&nbsp;&nbsp;
             <%= mail_to @isee_card.email %>
+            <br>
+            <br>
+            <small class='text-primary'>
+              <%= icon('fas', 'clipboard') %>
+              &nbsp;Note:&nbsp;
+            </small>
+            <%= @isee_card.note %>
           </li>
           <li class='list-group-item'>
             <span class='text-primary'>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_10_152322) do
+ActiveRecord::Schema.define(version: 2020_05_13_173640) do
 
   create_table "isee_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "code"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2020_05_10_152322) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "updater"
+    t.string "note"
+    t.string "fiscal_code"
     t.index ["location_id"], name: "index_isee_cards_on_location_id"
     t.index ["use_type_id"], name: "index_isee_cards_on_use_type_id"
     t.index ["user_id"], name: "index_isee_cards_on_user_id"

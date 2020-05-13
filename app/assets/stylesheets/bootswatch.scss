@@ -71,7 +71,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    $font-family-base !default;
-$headings-font-weight:    300 !default;
+$headings-font-weight:    600 !default;
 $headings-line-height:    1.1 !default;
 $headings-color:          inherit !default;
 
@@ -147,7 +147,7 @@ $table-border-color:            #ddd !default;
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
-$btn-font-weight:                normal !default;
+$btn-font-weight:                600 !default;
 
 $btn-default-color:              $gray-dark !default;
 $btn-default-bg:                 #e7e7e7 !default;
@@ -987,6 +987,7 @@ h6 {
   .btn {
     padding-top: 6px;
     padding-bottom: 6px;
+    font-weight: 600;
   }
 
   &-form {
@@ -1066,7 +1067,7 @@ h6 {
 // Buttons ====================================================================
 
 .btn {
-  font-weight: 700;
+  font-weight: 600;
   font-size: medium;
 
   padding: $padding-base-vertical $padding-base-horizontal;
@@ -1089,6 +1090,7 @@ h6 {
   .btn ~ .dropdown-toggle {
     padding-left: 16px;
     padding-right: 16px;
+    font-weight: 600;
   }
 
   .dropdown-menu {

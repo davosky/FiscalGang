@@ -4,7 +4,10 @@ class IseeCardsController < ApplicationController
   before_action :set_isee_card, only: %i[show edit update destroy]
 
   def index
-    @isee_cards = IseeCard.all.order('created_at DESC')
+    @q = IseeCard.ransack(params[:q])
+    @isee_cards = @q.result(distinct: true)
+                    .order('created_at DESC')
+                    .paginate(page: params[:page], per_page: 10)
   end
 
   def show
@@ -41,6 +44,6 @@ class IseeCardsController < ApplicationController
   end
 
   def isee_card_params
-    params.require(:isee_card).permit(:code, :date, :name, :surname, :phone, :email, :use_type_id, :location_id, :user_id, :completion_date, :completed, :updater)
+    params.require(:isee_card).permit(:code, :date, :name, :surname, :phone, :email, :use_type_id, :location_id, :user_id, :completion_date, :completed, :updater, :note, :fiscal_code)
   end
 end
