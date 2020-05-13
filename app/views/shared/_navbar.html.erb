@@ -29,10 +29,10 @@
         <li>
           <% if admin? %>
             <%= link_to rails_admin_path do %>
-              <%= icon('fas', 'cogs', ' Amministrazione', class: 'strong') %>
-            <% end %>
+            <%= icon('fas', 'cogs', ' Amministrazione', class: 'strong') %>
           <% end %>
-        </li>
+        <% end %>
+      </li>
       <li>
         <%= link_to use_types_path do %>
         <%= icon('fas', 'tools', ' Utilizzi', class: 'strong') %>
@@ -48,6 +48,11 @@
     <%= link_to edit_user_registration_path do %>
     <%= icon('fas', 'user', ' Profilo', class: 'strong') %>
   <% end %>
+</li>
+<li>
+  <%= link_to home_credits_path do %>
+  <%= icon('fas', 'user-cog', ' Crediti', class: 'strong') %>
+<% end %>
 </li>
 <li>
   <%= link_to destroy_user_session_path, method: :delete do %>
