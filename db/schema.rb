@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2020_05_13_173640) do
     t.bigint "user_id"
     t.date "completion_date"
     t.boolean "completed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "updater"
     t.string "note"
     t.string "fiscal_code"
