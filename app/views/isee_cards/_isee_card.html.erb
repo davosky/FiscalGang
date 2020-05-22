@@ -8,6 +8,7 @@
   <td><%= isee_card.surname %></td>
   <td><%= isee_card.phone %></td>
   <td><%= isee_card.note %></td>
+  <td><%= truncate(isee_card.use_type.name, length: 50) %></td>
   <td><%= isee_card.location.name %></td>
   <td>
     <%= link_to edit_isee_card_path(isee_card), title: 'Modifica Scheda ISEE', remote: true do %>

@@ -6,6 +6,8 @@
     <%= s.search_field :surname_start, class: 'form-control' %>
     <%= s.label 'Zona: ', class:'text-primary' %>
     <%= s.search_field :location_name_cont, class: 'form-control' %>
+    <%= s.label 'Tipo: ', class:'text-primary' %>
+    <%= s.search_field :use_type_name_start, class: 'form-control' %>
     <%= button_tag(type: 'submit', class: 'btn btn-primary btn-sm', title: 'Aggiorna', 'data-toggle' => 'tooltip', 'data-placement' => 'top') do %>
       <%= icon('fas', 'search') %>&nbsp;Cerca
     <% end %>
@@ -43,6 +45,9 @@
           </th>
           <th>
             <%= icon('fas', 'clipboard', class: 'strong') %>&nbsp;Note
+          </th>
+          <th>
+            <%= icon('fas', 'clipboard', class: 'strong') %>&nbsp;Tipo
           </th>
           <th>
             <%= icon('fas', 'map-marker-alt', class: 'strong') %>&nbsp;Zona

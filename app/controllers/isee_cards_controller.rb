@@ -7,7 +7,7 @@ class IseeCardsController < ApplicationController
     @q = IseeCard.ransack(params[:q])
     @isee_cards = @q.result(distinct: true)
                     .order('created_at DESC')
-                    .paginate(page: params[:page], per_page: 10)
+                    .paginate(page: params[:page], per_page: 50)
   end
 
   def show
