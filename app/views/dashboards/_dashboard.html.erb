@@ -10,7 +10,7 @@
       <%= truncate(dashboard.content, length: 250) %>
       &nbsp;
       <small>
-        <%= link_to dashboard_path(dashboard), title: 'Leggi l\'intero messaggio', remote: true do %>
+        <%= link_to dashboard_path(dashboard), title: 'Leggi l\'intero Messaggio', remote: true do %>
           <%= icon('fab', 'readme', class: 'strong') %>
         <% end %>
       </small>
@@ -34,14 +34,14 @@
   <% if dashboard.user_id == current_user.id %>
     <td>
       <small>
-        <%= link_to edit_dashboard_path(dashboard), title: 'Modifica Scheda ISEE', remote: true do %>
+        <%= link_to edit_dashboard_path(dashboard), title: 'Modifica Messaggio', remote: true do %>
           <%= icon('fas', 'pencil-alt', class: 'strong') %>
         <% end %>
       </small>
     </td>
     <td>
       <small>
-        <%= link_to dashboard, title: 'Elimina Scheda ISEE', method: :delete, remote: true, data: { confirm: 'Sicuri di voler eliminare la Scheda ISEE corrente?' } do %>
+        <%= link_to dashboard, title: 'Elimina Messaggio', method: :delete, remote: true, data: { confirm: 'Sicuri di voler eliminare il Messaggio corrente?' } do %>
           <%= icon('fas', 'trash-alt', class: 'strong') %>
         <% end %>
       </small>
