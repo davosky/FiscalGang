@@ -1,4 +1,4 @@
-<tr id="<%= use_type.id %>">
+<tr id='<%= use_type.id %>'>
   <td><%= use_type.name %></td>
   <td><%= use_type.position %></td>
   <td>
@@ -7,7 +7,7 @@
     <% end %>
   </td>
   <td>
-    <%= link_to use_type, title: "Elimina tipologia di Utilizzo", method: :delete, remote: true, data: { confirm: 'Sicuri di voler eliminare la tipologia di Utilizzo corrente?' } do %>
+    <%= link_to use_type, title: 'Elimina tipologia di Utilizzo', method: :delete, remote: true, data: { confirm: 'Sicuri di voler eliminare la tipologia di Utilizzo corrente?' } do %>
       <%= icon('fas', 'trash-alt', id: 'icon-utility', class: 'strong') %>
     <% end %>
   </td>

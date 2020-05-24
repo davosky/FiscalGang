@@ -33,6 +33,18 @@ RailsAdmin.config do |config|
     label_plural 'Utilizzi'
   end
 
+  config.model 'MessagePriority' do
+    visible true
+    label 'Priorità'
+    label_plural 'Priorità'
+  end
+
+  config.model 'Dashboard' do
+    visible true
+    label 'Messaggio'
+    label_plural 'Messaggi'
+  end
+
   config.actions do
     dashboard
     index

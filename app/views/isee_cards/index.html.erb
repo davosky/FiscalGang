@@ -13,11 +13,11 @@
     <% end %>
   <% end %>
 </div>
-<hr class="hr-primary">
+<hr class='hr-primary'>
 <div class='panel panel-default'>
   <div class='panel-body'>
     <h3 class='text-primary'>
-      <%= inline_svg_tag('isee_card_card.svg', size: '24px * 24px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+      <%= inline_svg_tag('isee_card_card.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet') %>
       &nbsp;<strong>Schede ISEE</strong>
       <span class='pull-right'>
         <%= link_to '#new_isee_card', data: { toggle: 'modal' }, class: 'btn btn-primary btn-sm' do %>
@@ -62,7 +62,7 @@
   </div>
 </div>
 <br>
-<div class="text-center">
+<div class='text-center'>
   <strong>
     <%= will_paginate @isee_cards, :previous_label => '<< PRECEDENTE', :next_label => 'PROSSIMA >>', renderer: BootstrapPagination::Rails %>
   </strong>

@@ -6,22 +6,22 @@
     <br/>
     <br/>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="input-group">
-        <span class="input-group-addon">
+      <div class='input-group'>
+        <span class='input-group-addon'>
           <strong class='text-primary'>
             <%= icon('fas', 'at') %>
           </strong>
         </span>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'E-Mail', class: 'form-control' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'E-Mail', class: 'form-control' %>
       </div>
       <br/>
-      <div class="input-group">
-        <span class="input-group-addon">
+      <div class='input-group'>
+        <span class='input-group-addon'>
           <strong class='text-primary'>
             <%= icon('fas', 'key') %>
           </strong>
         </span>
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: 'E-Mail', class: 'form-control' %>
+        <%= f.password_field :password, autocomplete: 'current-password', placeholder: 'E-Mail', class: 'form-control' %>
       </div>
       <br/>
       <div class='form-group'>

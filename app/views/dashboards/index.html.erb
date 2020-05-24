@@ -1,0 +1,91 @@
+<h3 class='text-primary'>
+  <%= inline_svg_tag('dashboard_logo.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+  &nbsp;<strong>Bacheca</strong>
+  <span class='pull-right'>
+    <%= link_to '#new_dashboard', data: { toggle: 'modal' }, class: 'btn btn-primary btn-sm' do %>
+      <%= icon('fas', 'plus', class: 'strong') %>
+      &nbsp;
+      <%= icon('fas', 'columns', class: 'strong') %>
+      &nbsp; Nuovo Messaggio
+    <% end %>
+  </span>
+</h3>
+<hr class='hr-primary'/>
+<table class='table'>
+  <tbody id='dashboards'>
+    <%= render @dashboards %>
+  </tbody>
+</table>
+<div class='text-center'>
+  <strong>
+    <%= will_paginate @dashboards, :previous_label => '<< PRECEDENTE', :next_label => 'PROSSIMA >>', renderer: BootstrapPagination::Rails %>
+  </strong>
+</div>
+<!-- MODAL -->
+<div class='modal fade' id='new_dashboard'>
+  <%= form_for Dashboard.new, remote: true do |f| %>
+    <div class='modal-dialog'>
+      <div class='modal-content'>
+        <div class='modal-header'>
+          <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>
+            <span class='text-danger'>
+              &times;
+            </span>
+          </button>
+          <h4 class='modal-title'>
+            <strong>
+              <%= icon('fas', 'pencil-alt', class: 'text-success') %>
+              &nbsp;
+              <%= icon('fas', 'columns', class: 'text-primary') %>
+              &nbsp;&nbsp;&nbsp;
+              <span class='text-primary'>
+                Nuovo Messaggio
+              </span>
+            </strong>
+          </h4>
+        </div>
+        <div class='modal-body'>
+          <div class='form-inputs'>
+            <div class='input-group'>
+              <span class='input-group-addon'>
+                <strong class='text-success'>
+                  <%= icon('fas', 'user') %>
+                </strong>
+              </span>
+              <%= f.text_field :title, class: 'form-control', placeholder: 'Titolo:' %>
+            </div>
+            <br>
+            <div class='input-group'>
+              <span class='input-group-addon'>
+                <strong class='text-success'>
+                  <%= icon('fas', 'user-tie') %>
+                </strong>
+              </span>
+              <%= f.text_area :content, class: 'form-control', placeholder: 'Contenuto:' %>
+            </div>
+            <br>
+            <div class='input-group'>
+              <span class='input-group-addon'>
+                <strong class='text-success'>
+                  <%= icon('fas', 'map-marker-alt') %>
+                </strong>
+              </span>
+              <%= f.collection_select(:message_priority_id, MessagePriority.order('position ASC'), :id, :name, {:include_blank => false}, {:class => 'form-control'}) %>
+            </div>
+            <br/>
+          </div>
+        </div>
+        <div class='modal-footer'>
+          <div class='form-group'>
+            <button type='button' class='btn btn-danger' data-dismiss='modal'>
+              <%= icon('fas', 'times') %>&nbsp;Chiudi
+            </button>
+            <%= button_tag(type: 'submit', class: 'btn btn-success', title: 'Salva', 'data-toggle' => 'tooltip', 'data-placement' => 'top') do %>
+              <%= icon('fas', 'save') %>&nbsp;Salva
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

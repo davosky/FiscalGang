@@ -1,0 +1,2 @@
+class MessagePriority < ApplicationRecord
+end

@@ -1,0 +1,79 @@
+<!-- MODAL-->
+<div class='modal fade' id='edit_dashboard'>
+  <%= form_for @dashboard, remote: true do |f| %>
+    <div class='modal-dialog'>
+      <div class='modal-content'>
+        <div class='modal-header'>
+          <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>
+            <span class='text-danger'>
+              &times;
+            </span>
+          </button>
+          <h4 class='modal-title'>
+            <strong>
+              <%= icon('fas', 'pencil-alt', class: 'text-warning') %>
+              &nbsp;
+              <%= icon('fas', 'id-card', class: 'text-primary') %>
+              &nbsp;
+              <span class='text-primary'>
+                Modifica Messaggio
+              </span>
+            </strong>
+          </h4>
+        </div>
+        <div class='modal-body'>
+          <% if @dashboard.errors.any? %>
+            <div id='error_explanation'>
+              <h2><%= pluralize(report.errors.count, 'error') %>
+                Prohibited to save Message:</h2>
+              <ul>
+                <% @dashboard.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class='form-inputs'>
+            <div class='form-inputs'>
+              <div class='input-group'>
+                <span class='input-group-addon'>
+                  <strong class='text-success'>
+                    <%= icon('fas', 'user') %>
+                  </strong>
+                </span>
+                <%= f.text_field :title, class: 'form-control', placeholder: 'Titolo:' %>
+              </div>
+              <br>
+              <div class='input-group'>
+                <span class='input-group-addon'>
+                  <strong class='text-success'>
+                    <%= icon('fas', 'user-tie') %>
+                  </strong>
+                </span>
+                <%= f.text_area :content, class: 'form-control', placeholder: 'Contenuto:' %>
+              </div>
+              <br>
+              <div class='input-group'>
+                <span class='input-group-addon'>
+                  <strong class='text-success'>
+                    <%= icon('fas', 'map-marker-alt') %>
+                  </strong>
+                </span>
+                <%= f.collection_select(:message_priority_id, MessagePriority.order('position ASC'), :id, :name, {:include_blank => false}, {:class => 'form-control'}) %>
+              </div>
+              <br/>
+            </div>
+            <div class='modal-footer'>
+              <div class='form-group'>
+                <button type='button' class='btn btn-danger' data-dismiss='modal'>
+                  <%= icon('fas', 'times') %>&nbsp;Chiudi
+                </button>
+                <%= button_tag(type: 'submit', class: 'btn btn-success btn-sm', title: 'Aggiorna', 'data-toggle' => 'tooltip', 'data-placement' => 'top') do %>
+                  <%= icon('fas', 'save') %>&nbsp;Aggiorna
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>

@@ -1,0 +1,48 @@
+<div class='modal fade' id='show_dashboard'>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>
+          <span class='text-danger'>
+            &times;
+          </span>
+        </button>
+        <h4 class='modal-title'>
+          <strong>
+            <span class='text-<%= message_priority?(@dashboard) %>'>
+              <%= @dashboard.title %>
+            </span>
+          </strong>
+        </h4>
+      </div>
+      <div class='modal-body'>
+        <span class='pull-right'>
+          <small class='text-grey'>
+            <%= icon('fas', 'user-circle') %>
+            &nbsp;Creato da:&nbsp;&nbsp;&nbsp;
+            <%= @dashboard.user.name %>
+            &nbsp;
+            <%= @dashboard.user.surname %>
+            <br>
+            <%= icon('fas', 'calendar-day') %>
+            &nbsp;Creato il:&nbsp;
+            <%= l(@dashboard.created_at, format: '%A %d %B %Y alle ore: %H:%M') %>
+          </small>
+        </span>
+        <br/>
+        <br/>
+        <hr>
+        <span class='text-<%= message_priority?(@dashboard) %>'>
+          <%= @dashboard.content %>
+        </span>
+      </div>
+      <div class='modal-footer'>
+        <div class='form-group'>
+          <button type='button' class='btn btn-primary' data-dismiss='modal'>
+            <%= icon('fas', 'times') %>&nbsp;Chiudi
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

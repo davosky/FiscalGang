@@ -1,9 +1,9 @@
 <div class='panel panel-default'>
   <div class='panel-body'>
-    <h3 class="text-primary">
+    <h3 class='text-primary'>
       <%= inline_svg_tag('use_type_card.svg', size: '24px * 24px', preserve_aspect_ratio: 'xMaxYMax meet') %>
       &nbsp;<strong>Tipologie di Utilizzo</strong>
-      <span class="pull-right">
+      <span class='pull-right'>
         <%= link_to '#new_use_type', data: { toggle: 'modal' }, class: 'btn btn-primary btn-sm' do %>
           <%= icon('fas', 'plus', class: 'strong') %>
           &nbsp;
@@ -13,7 +13,7 @@
       </span>
     </h3>
     <br/>
-    <hr class="hr-primary">
+    <hr class='hr-primary'>
     <table class='table table-hover'>
       <thead>
         <tr>
@@ -23,7 +23,7 @@
           <th>
             <%= icon('fas', 'arrows-alt-v', class: 'strong') %>&nbsp;Posizione
           </th>
-          <th colspan="2"></th>
+          <th colspan='2'></th>
         </tr>
       </thead>
       <tbody id='use_types'>
@@ -34,11 +34,11 @@
 </div>
 <br>
 <!-- MODAL -->
-<div class="modal fade" id="new_use_type">
+<div class='modal fade' id='new_use_type'>
   <%= form_for UseType.new, remote: true do |f| %>
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
+    <div class='modal-dialog'>
+      <div class='modal-content'>
+        <div class='modal-header'>
           <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>
             <span class='text-danger'>
               &times;
@@ -56,10 +56,10 @@
             </strong>
           </h4>
         </div>
-        <div class="modal-body">
-          <div class="form-inputs">
-            <div class="input-group">
-              <span class="input-group-addon">
+        <div class='modal-body'>
+          <div class='form-inputs'>
+            <div class='input-group'>
+              <span class='input-group-addon'>
                 <strong class='infotext'>
                   <%= icon('fas', 'tools') %>
                 </strong>
@@ -67,9 +67,9 @@
               <%= f.text_field :name, class: 'form-control' %>
             </div>
             <br>
-            <div class="input-group">
-              <span class="input-group-addon">
-                <strong class="infotext">
+            <div class='input-group'>
+              <span class='input-group-addon'>
+                <strong class='infotext'>
                   <%= icon('fas', 'arrows-alt-v') %>
                 </strong>
               </span>
@@ -77,8 +77,8 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <div class="form-group">
+        <div class='modal-footer'>
+          <div class='form-group'>
             <button type='button' class='btn btn-danger' data-dismiss='modal'>
               <%= icon('fas', 'times') %>&nbsp;Chiudi
             </button>

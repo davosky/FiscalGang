@@ -1,4 +1,4 @@
-<tr id="<%= location.id %>">
+<tr id='<%= location.id %>'>
   <td><%= location.name %></td>
   <td><%= location.position %></td>
   <td>
@@ -7,7 +7,7 @@
     <% end %>
   </td>
   <td>
-    <%= link_to location, title: "Elimina Zona", method: :delete, remote: true, data: { confirm: 'Sicuri di voler eliminare la Zona corrente?' } do %>
+    <%= link_to location, title: 'Elimina Zona', method: :delete, remote: true, data: { confirm: 'Sicuri di voler eliminare la Zona corrente?' } do %>
       <%= icon('fas', 'trash-alt', id: 'icon-utility', class: 'strong') %>
     <% end %>
   </td>

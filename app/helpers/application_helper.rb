@@ -30,4 +30,14 @@ module ApplicationHelper
   def modified?(isee_card)
     isee_card.updater !=nil
   end
+
+  def message_priority?(dashboard)
+    if dashboard.message_priority.name == 'Normale'
+      'primary'
+    elsif dashboard.message_priority.name == 'Info'
+      'info'
+    elsif dashboard.message_priority.name == 'Attenzione'
+      'danger'
+    end
+  end
 end

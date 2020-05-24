@@ -20,7 +20,7 @@ $gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
 
 $brand-primary: #29487d !default;
 $brand-success: #43ac6a !default;
-$brand-info: #aa0044 !default;
+$brand-info: #7400aa !default;
 $brand-warning: #e99002 !default;
 $brand-danger: #ff0000 !default;
 
@@ -927,6 +927,19 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;
   font-size: 16px;
 }
 
+.text-grey {
+  font-size: 10px;
+  color: #8a8a8a;
+}
+
+.bottomborder {
+  border-bottom: 2px solid #cacaca;
+}
+
+.whitebackground {
+  background-color: #fff;
+}
+
 // DOM General =================================================================
 body {
   background-color: #fff;
@@ -1025,7 +1038,7 @@ h6 {
   }
 
   &-inverse {
-    box-shadow: inset 0px 1px 0px #00ccff;
+    box-shadow: inset 0px 1px 0px #d40000;
     .dropdown-menu {
       background-color: $navbar-inverse-bg;
 
@@ -1395,6 +1408,29 @@ input[type="checkbox"] {
   border-radius: 0px;
   box-shadow: 0px 3px 6px #888;
   border-color: #e3e3e3;
+}
+.panel.panel-primary {
+  border-radius: 0px;
+  box-shadow: 0px 3px 6px #888;
+  border-color: $brand-primary;
+}
+
+.panel.panel-info {
+  border-radius: 0px;
+  box-shadow: 0px 3px 6px #888;
+  border-color: $brand-info;
+}
+
+.panel.panel-success {
+  border-radius: 0px;
+  box-shadow: 0px 3px 6px #888;
+  border-color: $brand-success;
+}
+
+.panel.panel-danger {
+  border-radius: 0px;
+  box-shadow: 0px 3px 6px #888;
+  border-color: $brand-danger;
 }
 
 .modal {

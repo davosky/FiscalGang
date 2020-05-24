@@ -1,9 +1,9 @@
 <!-- MODAL-->
-<div class="modal fade" id="edit_use_type">
+<div class='modal fade' id='edit_use_type'>
   <%= form_for @use_type, remote: true do |f| %>
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
+    <div class='modal-dialog'>
+      <div class='modal-content'>
+        <div class='modal-header'>
           <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>
             <span class='text-danger'>
               &times;
@@ -21,7 +21,7 @@
             </strong>
           </h4>
         </div>
-        <div class="modal-body">
+        <div class='modal-body'>
           <% if @use_type.errors.any? %>
             <div id='error_explanation'>
               <h2><%= pluralize(report.errors.count, 'error') %>
@@ -33,9 +33,9 @@
               </ul>
             </div>
           <% end %>
-          <div class="form-inputs">
-            <div class="input-group">
-              <span class="input-group-addon">
+          <div class='form-inputs'>
+            <div class='input-group'>
+              <span class='input-group-addon'>
                 <strong class='infotext'>
                   <%= icon('fas', 'tools') %>
                 </strong>
@@ -43,16 +43,16 @@
               <%= f.text_field :name, class: 'form-control' %>
             </div>
             <br>
-            <div class="input-group">
-              <span class="input-group-addon">
-                <strong class="infotext">
+            <div class='input-group'>
+              <span class='input-group-addon'>
+                <strong class='infotext'>
                   <%= icon('fas', 'arrows-alt-v') %>
                 </strong>
               </span>
               <%= f.number_field :position, class: 'form-control' %>
             </div>
           </div>
-          <div class="modal-footer">
+          <div class='modal-footer'>
             <div class='form-group'>
               <button type='button' class='btn btn-danger' data-dismiss='modal'>
                 <%= icon('fas', 'times') %>&nbsp;Chiudi
