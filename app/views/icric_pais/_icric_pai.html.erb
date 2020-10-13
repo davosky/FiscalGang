@@ -1,4 +1,4 @@
-<tr id='<%= icric_pai.id %>' class='<%= completed?(icric_pai) %>'>
+<tr id='<%= icric_pai.id %>' class='<%= finalized?(icric_pai) %>'>
   <td>
     <%= link_to icric_pai_path(icric_pai), title: 'Dettaglio Scheda ISEE', remote: true do %>
       <%= icon('fas', 'id-card', class: 'strong') %>

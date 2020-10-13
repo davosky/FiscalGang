@@ -21,6 +21,12 @@ RailsAdmin.config do |config|
     label_plural 'Schede ISEE'
   end
 
+  config.model 'IcricPai' do
+    visible true
+    label 'Scheda ICRIC/PAI'
+    label_plural 'Schede ICRIC/PAI'
+  end
+
   config.model 'Location' do
     visible true
     label 'Zona'

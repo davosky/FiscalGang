@@ -46,6 +46,24 @@ it:
         updater: Aggionato da
         created_at: Creato il
         updated_at: Aggiornato il
+      icric_pai:
+        code: Codice
+        date: Data
+        name: Nome
+        surname: Cognome
+        phone: Telefono
+        email: E-Mail
+        use_type: Utilizzo
+        use_type_id: Utilizzo
+        location: Zona
+        location_id: Zona
+        user: Operatore
+        user_id: Operatore
+        completion_date: Data chiusura
+        completed: Completato
+        updater: Aggionato da
+        created_at: Creato il
+        updated_at: Aggiornato il
       dashboard:
         title: Titolo
         content: Contenuto

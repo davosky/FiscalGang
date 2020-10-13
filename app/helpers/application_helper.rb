@@ -13,20 +13,8 @@ module ApplicationHelper
     'tr-success' if isee_card.completed == true
   end
 
-  def completed?(icric_pai)
-    'tr-success' if icric_pai.completed == true
-  end
-
   def completed_icon?(isee_card)
     if (isee_card.completed == true) && (isee_card.completion_date != nil)
-      icon('fas', 'check', class: 'text-success')
-    else
-      icon('fas', 'times', class: 'text-primary')
-    end
-  end
-
-  def completed_icon?(icric_pai)
-    if (icric_pai.completed == true) && (icric_pai.completion_date != nil)
       icon('fas', 'check', class: 'text-success')
     else
       icon('fas', 'times', class: 'text-primary')
@@ -39,7 +27,24 @@ module ApplicationHelper
     end
   end
 
-  def completed_date?(icric_pai)
+  def modified?(isee_card)
+    isee_card.updater !=nil
+  end
+
+
+  def finalized?(icric_pai)
+    'tr-success' if icric_pai.completed == true
+  end
+
+  def finalized_icon?(icric_pai)
+    if (icric_pai.completed == true) && (icric_pai.completion_date != nil)
+      icon('fas', 'check', class: 'text-success')
+    else
+      icon('fas', 'times', class: 'text-primary')
+    end
+  end
+
+  def finalized_date?(icric_pai)
     if (icric_pai.completed == true) && (icric_pai.completion_date != nil)
       l(@icric_pai.completion_date, format: '%A %d %B %Y')
     end
@@ -49,7 +54,7 @@ module ApplicationHelper
     isee_card.updater !=nil
   end
 
-  def modified?(icric_pai)
+  def changed?(icric_pai)
     icric_pai.updater !=nil
   end
 
