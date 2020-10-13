@@ -1,0 +1,4 @@
+$('.modal').each(function(index,element) {
+$(element).modal('hide');
+});
+$('#<%= @icric_pai.id %>').replaceWith('<%= j render @icric_pai %>');

@@ -1,0 +1,23 @@
+<tr id='<%= icric_pai.id %>' class='<%= completed?(icric_pai) %>'>
+  <td>
+    <%= link_to icric_pai_path(icric_pai), title: 'Dettaglio Scheda ISEE', remote: true do %>
+      <%= icon('fas', 'id-card', class: 'strong') %>
+    <% end %>
+  </td>
+  <td><%= icric_pai.name %></td>
+  <td><%= icric_pai.surname %></td>
+  <td><%= icric_pai.phone %></td>
+  <td><%= icric_pai.note %></td>
+  <td><%= truncate(icric_pai.use_type.name, length: 50) %></td>
+  <td><%= icric_pai.location.name %></td>
+  <td>
+    <%= link_to edit_icric_pai_path(icric_pai), title: 'Modifica Scheda ICRIC/PAI', remote: true do %>
+      <%= icon('fas', 'pencil-alt', class: 'strong') %>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to icric_pai, title: 'Elimina Scheda ISEE', method: :delete, remote: true, data: { confirm: 'Sicuri di voler eliminare la Scheda ICRIC/PAI corrente?' } do %>
+      <%= icon('fas', 'trash-alt', class: 'strong') %>
+    <% end %>
+  </td>
+</tr>

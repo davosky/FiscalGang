@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :dashboards
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: 'home#index'
 
@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :use_types
   resources :locations
   resources :isee_cards
+  resources :icric_pais
+  resources :dashboards
 
   devise_for :users, skip: [:registrations]
   as :user do

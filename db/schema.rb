@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_142058) do
+ActiveRecord::Schema.define(version: 2020_10_13_170121) do
 
-  create_table "dashboards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "dashboards", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "title"
     t.date "date"
     t.text "content"
@@ -22,6 +22,28 @@ ActiveRecord::Schema.define(version: 2020_05_22_142058) do
     t.datetime "updated_at", null: false
     t.index ["message_priority_id"], name: "index_dashboards_on_message_priority_id"
     t.index ["user_id"], name: "index_dashboards_on_user_id"
+  end
+
+  create_table "icric_pais", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "code"
+    t.date "date"
+    t.string "name"
+    t.string "surname"
+    t.string "phone"
+    t.string "email"
+    t.bigint "use_type_id"
+    t.bigint "location_id"
+    t.bigint "user_id"
+    t.date "completion_date"
+    t.boolean "completed"
+    t.string "updater"
+    t.string "note"
+    t.string "fiscal_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_icric_pais_on_location_id"
+    t.index ["use_type_id"], name: "index_icric_pais_on_use_type_id"
+    t.index ["user_id"], name: "index_icric_pais_on_user_id"
   end
 
   create_table "isee_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -53,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_05_22_142058) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "message_priorities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "message_priorities", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.integer "position"
     t.datetime "created_at", null: false
@@ -86,6 +108,9 @@ ActiveRecord::Schema.define(version: 2020_05_22_142058) do
 
   add_foreign_key "dashboards", "message_priorities"
   add_foreign_key "dashboards", "users"
+  add_foreign_key "icric_pais", "locations"
+  add_foreign_key "icric_pais", "use_types"
+  add_foreign_key "icric_pais", "users"
   add_foreign_key "isee_cards", "locations"
   add_foreign_key "isee_cards", "use_types"
   add_foreign_key "isee_cards", "users"

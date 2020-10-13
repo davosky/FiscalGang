@@ -20,15 +20,15 @@
 <br/>
 <div class='panel panel-default'>
   <div class='panel-body'>
-    <h3 class='text-primary'>
-      <%= inline_svg_tag('isee_card_card.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-      &nbsp;<strong>Schede ISEE</strong>
+    <h3 class='text-secondary'>
+      <%= inline_svg_tag('icric_pai_card.svg', size: '48px * 48px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+      &nbsp;<strong>Schede ICRIC/PAI</strong>
       <span class='pull-right'>
-        <%= link_to '#new_isee_card', data: { toggle: 'modal' }, class: 'btn btn-primary btn-sm' do %>
+        <%= link_to '#new_icric_pai', data: { toggle: 'modal' }, class: 'btn btn-primary btn-sm' do %>
           <%= icon('fas', 'plus', class: 'strong') %>
           &nbsp;
           <%= icon('fas', 'id-card', class: 'strong') %>
-          &nbsp; Nuova Scheda ISEE
+          &nbsp; Nuova Scheda ICRIC/PAI
         <% end %>
       </span>
     </h3>
@@ -38,32 +38,32 @@
       <thead>
         <tr>
           <th></th>
-          <th>
+          <th class='text-secondary'>
             <small>
               <%= icon('fas', 'user') %>&nbsp;Nome
             </small>
           </th>
-          <th>
+          <th class='text-secondary'>
             <small>
               <%= icon('fas', 'user-tie') %>&nbsp;Cognome
             </small>
           </th>
-          <th>
+          <th class='text-secondary'>
             <small>
               <%= icon('fas', 'mobile-alt') %>&nbsp;Telefono
             </small>
           </th>
-          <th>
+          <th class='text-secondary'>
             <small>
               <%= icon('fas', 'clipboard') %>&nbsp;Note
             </small>
           </th>
-          <th>
+          <th class='text-secondary'>
             <small>
               <%= icon('fas', 'clipboard') %>&nbsp;Tipo
             </small>
           </th>
-          <th>
+          <th class='text-secondary'>
             <small>
               <%= icon('fas', 'map-marker-alt') %>&nbsp;Zona
             </small>
@@ -71,8 +71,8 @@
           <th colspan='2'></th>
         </tr>
       </thead>
-      <tbody id='isee_cards'>
-        <%= render @isee_cards %>
+      <tbody id='icric_pais'>
+        <%= render @icric_pais %>
       </tbody>
     </table>
   </div>
@@ -80,12 +80,12 @@
 <br>
 <div class='text-center'>
   <strong>
-    <%= will_paginate @isee_cards, :previous_label => '<< PRECEDENTE', :next_label => 'PROSSIMA >>', renderer: BootstrapPagination::Rails %>
+    <%= will_paginate @icric_pais, :previous_label => '<< PRECEDENTE', :next_label => 'PROSSIMA >>', renderer: BootstrapPagination::Rails %>
   </strong>
 </div>
 <!-- MODAL -->
-<div class='modal fade' id='new_isee_card'>
-  <%= form_for IseeCard.new, remote: true do |f| %>
+<div class='modal fade' id='new_icric_pai'>
+  <%= form_for IcricPai.new, remote: true do |f| %>
     <div class='modal-dialog'>
       <div class='modal-content'>
         <div class='modal-header'>
@@ -101,7 +101,7 @@
               <%= icon('fas', 'id-card', class: 'text-primary') %>
               &nbsp;&nbsp;&nbsp;
               <span class='text-primary'>
-                Nuova Scheda ISEE
+                Nuova Scheda ICRIC/PAI
               </span>
             </strong>
           </h4>

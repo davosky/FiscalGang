@@ -1,0 +1,141 @@
+<div class='modal fade' id='show_icric_pai'>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>
+          <span class='text-danger'>
+            &times;
+          </span>
+        </button>
+        <h4 class='modal-title'>
+          <strong>
+            <%= icon('fas', 'id-card', class: 'text-info') %>
+            &nbsp;
+            <span class='text-secondary'>
+              Scheda ICRIC/PAI
+            </span>
+          </strong>
+        </h4>
+      </div>
+      <div class='modal-body'>
+        <%= icon('fas', 'user-circle') %>
+        &nbsp;Creato da:&nbsp;&nbsp;&nbsp;
+        <%= @icric_pai.user.name %>
+        &nbsp;
+        <%= @icric_pai.user.surname %>
+        <br>
+        <span class='pull-left'>
+          <%= icon('fas', 'calendar-day') %>
+          &nbsp;Creato il:&nbsp;
+          <%= l(@icric_pai.created_at, format: '%A %d %B %Y alle ore: %H:%M') %>
+        </span>
+        <br>
+        <% if modified?(@icric_pai) %>
+          <hr>
+          <%= icon('fas', 'user-circle') %>
+          &nbsp;Aggiornato da:&nbsp;&nbsp;&nbsp;
+          <%= @icric_pai.updater %>
+          <span class='pull-left'>
+            <%= icon('fas', 'calendar-day') %>
+            &nbsp;Aggiornato il:&nbsp;
+            <%= l(@icric_pai.updated_at, format: '%A %d %B %Y alle ore: %H:%M') %>
+          </span>
+        <% end %>
+        <br>
+        <br>
+        <hr>
+        <ul class='list-group'>
+          <li class='list-group-item'>
+            <span class='text-secondary'>
+              <small>
+                <%= icon('fas', 'user-tie') %>
+                &nbsp;Utente:&nbsp;
+              </small>
+            </span>
+            <span class='pull-right'>
+              <small>
+                <%= icon('fas', 'credit-card text-secondary') %>
+                <%= @icric_pai.fiscal_code %>
+              </small>
+            </span>
+            <br>
+            <br>
+            <span class='text-info'>
+              <%= @icric_pai.name %>
+              &nbsp;
+              <%= @icric_pai.surname %>
+            </span>
+          </li>
+          <li class='list-group-item'>
+            <span class='text-secondary'>
+              <small>
+                <%= icon('fas', 'mobile-alt') %>
+                &nbsp;
+                <%= icon('fas', 'at') %>
+                &nbsp;Contatti:&nbsp;
+              </small>
+            </span>
+            <br>
+            <br>
+            <%= @icric_pai.phone %>
+            &nbsp;&nbsp;-&nbsp;&nbsp;
+            <%= mail_to @icric_pai.email %>
+            <br>
+            <br>
+            <small class='text-secondary'>
+              <%= icon('fas', 'clipboard') %>
+              &nbsp;Note:&nbsp;
+            </small>
+            <%= @icric_pai.note %>
+          </li>
+          <li class='list-group-item'>
+            <span class='text-secondary'>
+              <small>
+                <%= icon('fas', 'map-marker-alt') %>
+                &nbsp;Zona:
+              </small>
+            </span>
+            <br>
+            <br>
+            <%= @icric_pai.location.name if @icric_pai.location_id.present? %>
+          </li>
+          <li class='list-group-item'>
+            <span class='text-secondary'>
+              <small>
+                <%= icon('fas', 'tools') %>
+                &nbsp;Tipologia di Utilizzo:
+              </small>
+            </span>
+            <br>
+            <br>
+            <%= @icric_pai.use_type.name if @icric_pai.use_type.present? %>
+          </li>
+          <li class='list-group-item'>
+            <span class='text-secondary'>
+              <small>
+                <%= icon('fas', 'check-circle') %>
+                &nbsp;
+                <%= icon('fas', 'calendar-day') %>
+                &nbsp; Completata
+              </small>
+            </span>
+            <br>
+            <br>
+            <span class='text-<%= completed?(@icric_pai) %>'>
+              <%= completed_icon?(@icric_pai) %>
+              &nbsp;
+              <%= completed_date?(@icric_pai) %>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class='modal-footer'>
+        <div class='form-group'>
+          <button type='button' class='btn btn-primary' data-dismiss='modal'>
+            <%= icon('fas', 'times') %>&nbsp;Chiudi
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
